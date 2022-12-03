@@ -1,7 +1,6 @@
-import { Alert, Pressable, StyleSheet } from "react-native";
+import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
 import { Agenda, AgendaEntry } from "react-native-calendars";
 
-import { Text, View } from "../components/Themed";
 import { RootTabScreenProps } from "../types";
 
 import events from "../assets/data/events.json";
@@ -16,7 +15,7 @@ export default function TabOneScreen({
     return (
       <Pressable
         style={[styles.item, { height: reservation.height }]}
-        onPress={() => Alert.alert(reservation.name)}
+        onPress={() => navigation.navigate("Modal", { id: reservation.id })}
       >
         <Text style={{ fontSize, color }}>{reservation.name}</Text>
       </Pressable>
